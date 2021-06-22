@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:ds_session_2/RecordComponents/recordComponents.dart';
 import 'package:ds_session_2/model/state_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -51,20 +52,28 @@ class _WorldCovidCasesState extends State<WorldCovidCases> {
                       padding: const EdgeInsets.all(8.0),
                       child: Column(
                         children: [
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 20.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text('cases'),
-                                Text(
-                                  snapshot.data!.cases.toString(),
-                                ),
-                              ],
-                            ),
+                          componentRecord(
+                            title: 'cases',
+                            value: snapshot.data!.cases.toString(),
                           ),
-                          Divider(),
+                          componentRecord(
+                              title: 'Active cases',
+                              value: snapshot.data!.active.toString()),
+                          componentRecord(
+                              title: 'death',
+                              value: snapshot.data!.deaths.toString()),
+                          componentRecord(
+                              title: 'today cases',
+                              value: snapshot.data!.todayCases.toString()),
+                          componentRecord(
+                              title: 'today deaths',
+                              value: snapshot.data!.todayDeaths.toString()),
+                          componentRecord(
+                              title: 'Recovered Cases',
+                              value: snapshot.data!.recovered.toString()),
+                          componentRecord(
+                              title: 'critical',
+                              value: snapshot.data!.critical.toString()),
                         ],
                       ),
                     ),
